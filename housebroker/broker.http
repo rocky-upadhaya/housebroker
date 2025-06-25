@@ -1,0 +1,52 @@
+@housebroker_HostAddress = http://localhost:5229
+@Token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJicm9rZXJAdGVzdC5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImVhOTcwNTllLTQ5ODMtNGI5Ni05ZDU2LWY0MDAwY2RmNDk3NSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkJyb2tlciIsImV4cCI6MTc1MDg0NzUyMiwiaXNzIjoiaG91c2Vicm9rZXIiLCJhdWQiOiJob3VzZWJyb2tlclVzZXJzIn0.Qx1w90nvDVnrj1_sUmA_AZlaC3Nh4BfA1PNkoXz8ffA
+
+### Get all properties
+GET {{housebroker_HostAddress}}/api/properties
+Accept: application/json
+Authorization: Bearer {{Token}}
+
+###
+
+### Get property by ID
+GET {{housebroker_HostAddress}}/api/properties/1
+Accept: application/json
+Authorization: Bearer {{Token}}
+
+###
+
+### Create a new property
+POST {{housebroker_HostAddress}}/api/properties
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+Accept: application/json
+
+{
+    "location": "123 Main Street, City Center",
+    "price": 250000.00,
+    "type": "Building"
+}
+
+###
+
+### Update an existing property
+PUT {{housebroker_HostAddress}}/api/properties/1
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+Accept: application/json
+
+{
+    "id": 1,
+    "location": "456 Elm Street, Suburbia",
+    "price": 275000.00,
+    "type": "Building"
+}
+
+###
+
+### Delete a property by ID
+DELETE {{housebroker_HostAddress}}/api/properties/1
+Authorization: Bearer {{Token}}
+Accept: application/json
+
+###

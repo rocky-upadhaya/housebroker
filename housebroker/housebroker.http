@@ -1,0 +1,52 @@
+@housebroker_HostAddress = http://localhost:5229
+@Token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJicm9rZXJAdGVzdC5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImVhOTcwNTllLTQ5ODMtNGI5Ni05ZDU2LWY0MDAwY2RmNDk3NSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkJyb2tlciIsImV4cCI6MTc1MDg0NzUyMiwiaXNzIjoiaG91c2Vicm9rZXIiLCJhdWQiOiJob3VzZWJyb2tlclVzZXJzIn0.Qx1w90nvDVnrj1_sUmA_AZlaC3Nh4BfA1PNkoXz8ffA
+
+GET {{housebroker_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+
+POST {{housebroker_HostAddress}}/api/auth/register
+Content-Type: application/json
+{
+  "Email": "broker@test.com",
+  "Password": "P@ssw0rd",
+  "Role": "Broker"
+}
+###
+
+POST {{housebroker_HostAddress}}/api/auth/login
+Content-Type: application/json
+{
+  "email": "user1@test.com",
+  "password": "P@ssw0rd"
+}
+###
+POST {{housebroker_HostAddress}}/api/auth/login
+Content-Type: application/json
+{
+  "email": "broker@test.com",
+  "password": "P@ssw0rd"
+}
+
+
+###
+
+GET {{housebroker_HostAddress}}/WeatherForecast/CustomerTest/
+Accept: application/json
+Authorization: Bearer {{Token}}
+
+###
+
+GET {{housebroker_HostAddress}}/WeatherForecast/BrokerTest/
+Accept: application/json
+Authorization: Bearer {{Token}}
+
+###
+
+GET {{housebroker_HostAddress}}/WeatherForecast/CommonTest
+Accept: application/json
+Authorization: Bearer {{Token}}
+
+###
